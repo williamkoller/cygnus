@@ -9,8 +9,16 @@ export class PlayersService {
     private players: Player[] = []
     private readonly logger = new Logger(PlayersService.name)
 
-    async createUpdatePlayer(addPlayerDTO: AddPlayerDTO): Promise<Player> {
-        return await this.create(addPlayerDTO)
+    async createUpdatePlayer(addPlayerDTO: AddPlayerDTO): Promise<void> {
+        const { email } = addPlayerDTO
+
+        const playerFound = await this.players.find(player => player.email === email)
+
+        if (playerFound) {
+            return await this.update(playerFound, addPlayerDTO)
+        }
+
+        await this.create(addPlayerDTO)
     }
 
     private async create(addPlayerDTO: AddPlayerDTO): Promise<Player> {
@@ -26,5 +34,16 @@ export class PlayersService {
         }
         this.logger.log(`addPlayerDTO: ${JSON.stringify(player)}`)
         return player
+    }
+
+    async consultAllPlayer(): Promise<Player[]> {
+        return this.players
+    }
+
+    private async update(playerFound: Player, addPlayerDTO: AddPlayerDTO): Promise<void> {
+        const { name } = addPlayerDTO
+
+        playerFound.name = name
+
     }
 }
