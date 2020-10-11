@@ -18,7 +18,7 @@ Rest API made in Nestjs, using some concepts of Clean Architecture and some Desi
 
 ### To run this project, follow the below steps
 
-1. ##### Build Project
+##### Build Project
    - `npm i`
    - `docker-compose up --build`
 
