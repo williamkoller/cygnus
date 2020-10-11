@@ -1,40 +1,15 @@
-# Cygnus
-## Description
+# Rest API made in Nestjs, using some concepts of Clean Architecture and some design patterns
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Clean Architecture
 
-## Installation
+- Design Patterns
 
-```bash
-$ npm install
-```
+- Node
 
-## Running the app
+- Nest.js
 
-```bash
-# development
-$ npm run start
+- MongoDB
 
-# watch mode
-$ npm run start:dev
+- DTO (Data Transfer Object)
 
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## License
-
-  Nest is [MIT licensed](LICENSE).
+- Schemas (Mongoose)
