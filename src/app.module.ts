@@ -8,7 +8,7 @@ import { PlayerSchema } from './domain/models/schema/player.schema'
 
 @Module({
   imports: [
-    MongooseModule.forRoot(`${env.mongoUri}`, { useNewUrlParser: true, useCreateIndex: true }),
+    MongooseModule.forRoot(`${env.mongoUri}`, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: true }),
     CacheModule.register(),
     MongooseModule.forFeature([{ name: 'Player', schema: PlayerSchema }])
   ],
