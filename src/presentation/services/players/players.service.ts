@@ -52,4 +52,9 @@ export class PlayersService {
         }
         return playerFound
     }
+
+    async deletePlayer(email:string): Promise<void>{
+        const playerFound = await this.players.find(player => player.email === email)
+        this.players = this.players.filter(player => player.email !== playerFound.email)
+    }
 }
