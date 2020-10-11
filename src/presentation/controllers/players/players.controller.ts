@@ -7,8 +7,8 @@ import { Player } from 'src/domain/models/player/player'
 export class PlayersController {
     constructor(private readonly playersService: PlayersService) { }
     @Post()
-    async createUpdatePlayer(@Body() addPlayerDTO: AddPlayerDTO): Promise<void> {
-        await this.playersService.createUpdatePlayer(addPlayerDTO)
+    async createUpdatePlayer(@Body() addPlayerDTO: AddPlayerDTO): Promise<Player> {
+        return await this.playersService.createUpdatePlayer(addPlayerDTO)
     }
 
     @Get()

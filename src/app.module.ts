@@ -4,11 +4,13 @@ import { PlayersController } from './presentation/controllers/players/players.co
 import { PlayersService } from './presentation/services/players/players.service'
 import env from './config/env'
 import { MongooseModule } from '@nestjs/mongoose'
+import { PlayerSchema } from './domain/models/schema/player.schema'
 
 @Module({
   imports: [
-    MongooseModule.forRoot(`${env.mongoUri}`),
+    MongooseModule.forRoot(`${env.mongoUri}`, { useNewUrlParser: true, useCreateIndex: true }),
     CacheModule.register(),
+    MongooseModule.forFeature([{ name: 'Player', schema: PlayerSchema }])
   ],
   controllers: [PlayersController],
   providers: [
