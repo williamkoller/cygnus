@@ -40,6 +40,6 @@ export class PlayersService {
     }
 
     async deletePlayer(email: string): Promise<any> {
-        await this.playerModel.remove({ email }).exec()
+        await this.playerModel.findOneAndDelete({ email: email }).exec()
     }
 }
