@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common'
+import { BadRequestException, Injectable, Logger, NotFoundException } from '@nestjs/common'
 import { AddPlayerDTO } from '../../../domain/models/dto/add-player/add-player-dto'
 import { Player } from '../../../domain/models/player/player'
 import * as uuid from 'uuid'
@@ -42,8 +42,14 @@ export class PlayersService {
 
     private async update(playerFound: Player, addPlayerDTO: AddPlayerDTO): Promise<void> {
         const { name } = addPlayerDTO
-
         playerFound.name = name
+    }
 
+    async consultPlayerByEmail(email: string): Promise<Player> {
+        const playerFound = await this.players.find(player => player.email === email)
+        if(playerFound) {
+            throw new NotFoundException(`Player with ${email} not found`)
+        }
+        return playerFound
     }
 }
