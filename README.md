@@ -1,15 +1,38 @@
-# Rest API made in Nestjs, using some concepts of Clean Architecture and some design patterns
+[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 
-- Clean Architecture
+# **Cygnus**
 
-- Design Patterns
+Rest API made in Nestjs, using some concepts of Clean Architecture and some Design Patterns
 
-- Node
+> ## Principles
 
-- Nest.js
+* Small Commits
 
-- MongoDB
+> ## Design Patterns
 
-- DTO (Data Transfer Object)
+* Decorator
+* Dependency Injection
 
-- Schemas (Mongoose)
+> ## Methodology and Designer
+
+* Clean Architecture
+* Conventional Commits
+* GitFlow
+
+> ## Features Git
+
+* Alias
+* Log Personalizado
+* Branch
+* Reset
+* Amend
+* Tag
+* Stash
+* Rebase
+* Merge
+
+> ## Features Typescript
+
+* POO Avançado
+* Interface
+* Utility Types
