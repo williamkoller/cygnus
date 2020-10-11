@@ -2,7 +2,7 @@ import { Module, CacheModule, CacheInterceptor } from '@nestjs/common'
 import { APP_INTERCEPTOR } from '@nestjs/core'
 import { PlayersController } from './presentation/controllers/players/players.controller'
 import { PlayersService } from './presentation/services/players/players.service'
-import env from './config/env'
+import env from './main/config/env'
 import { MongooseModule } from '@nestjs/mongoose'
 import { PlayerSchema } from './domain/models/schema/player.schema'
 
