@@ -3,6 +3,7 @@ import { PlayersService } from '../../services/players/players.service'
 import { AddPlayerDTO } from '../../../domain/models/dto/add-player/add-player-dto'
 import { Player } from 'src/domain/models/player/player'
 import { PlayersValidationsParametersPipes } from 'src/main/pipes/players-validations-parameters.pipes'
+import { UpdatePlayerDTO } from 'src/domain/models/dto/update-player/update-player-dto'
 
 @Controller('api/v1/players')
 export class PlayersController {
@@ -16,9 +17,9 @@ export class PlayersController {
     @Put('/:_id')
     @UsePipes(ValidationPipe)
     async updatePlayer(
-        @Body() addPlayerDTO: AddPlayerDTO, 
+        @Body() updatePlayerDTO: UpdatePlayerDTO, 
         @Param('_id', PlayersValidationsParametersPipes) _id: string): Promise<Player> {
-        return await this.playersService.updatePlayer(_id, addPlayerDTO)
+        return await this.playersService.updatePlayer(_id, updatePlayerDTO)
     }
 
     @Get()
