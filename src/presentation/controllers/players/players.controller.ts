@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Post, Query, UsePipes, ValidationPipe } 
 import { PlayersService } from '../../services/players/players.service'
 import { AddPlayerDTO } from '../../../domain/models/dto/add-player/add-player-dto'
 import { Player } from 'src/domain/models/player/player'
+import { PlayersValidationsParametersPipes } from 'src/main/pipes/players-validations-parameters.pipes'
 
 @Controller('api/v1/players')
 export class PlayersController {
@@ -14,7 +15,7 @@ export class PlayersController {
 
     @Get()
     async consultPlayer(
-        @Query('email') email: string
+        @Query('email', PlayersValidationsParametersPipes) email: string
     ): Promise<Player[] | Promise<Player>> {
         if (email) {
             return await this.playersService.consultPlayerByEmail(email)
@@ -23,7 +24,7 @@ export class PlayersController {
     }
 
     @Delete()
-    async deletePlayer(@Query('email') email: string): Promise<void> {
+    async deletePlayer(@Query('email', PlayersValidationsParametersPipes) email: string): Promise<void> {
         await this.playersService.deletePlayer(email)
     }
 }
