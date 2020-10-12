@@ -4,7 +4,6 @@ import * as mongoose from 'mongoose'
 export const PlayerSchema = new mongoose.Schema({
     name: {
         type: String,
-        unique: true,
         required: true
     },
     email: {
@@ -14,20 +13,16 @@ export const PlayerSchema = new mongoose.Schema({
     },
     phoneNumber: {
         type: String,
-        unique: true,
         required: true
     },
     ranking: {
         type: String,
-        required: true
     },
     rankingPosition: {
         type: String,
-        required: true
     },
     urlPhotoPlayer: {
         type: String,
-        required: true
     }
 
 }, {
