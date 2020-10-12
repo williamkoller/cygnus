@@ -3,6 +3,7 @@ import { AddPlayerDTO } from '../../../domain/models/dto/add-player/add-player-d
 import { Player } from '../../../domain/models/player/player'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
+import { UpdatePlayerDTO } from 'src/domain/models/dto/update-player/update-player-dto'
 
 @Injectable()
 export class PlayersService {
@@ -19,13 +20,13 @@ export class PlayersService {
         return await createdPlayer.save()
     }
 
-    async updatePlayer(_id: string, addPlayerDTO: AddPlayerDTO): Promise<Player> {
+    async updatePlayer(_id: string, updatePlayerDTO: UpdatePlayerDTO): Promise<Player> {
         const playerfound = await this.playerModel.findOne({ _id }).exec()
 
         if (!playerfound) {
             throw new NotFoundException(`player with ${_id} not found`)
         }
-        return await this.playerModel.findOneAndUpdate({ _id }, { $set: addPlayerDTO })
+        return await this.playerModel.findOneAndUpdate({ _id }, { $set: updatePlayerDTO })
     }
 
     async consultAllPlayer(): Promise<Player[]> {
